@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics 2026 Theory | [SAMPLE AD] | ASWClassFinder</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Updated to a Physics-themed palette: Deep Indigo and Vibrant Orange */
+            --primary: #f97316; 
+            --dark: #1e1b4b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --border: #e2e8f0;
+            --star: #f59e0b;
+            --danger: #ef4444;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background-color: var(--light);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--primary);
+        }
+        .back-btn {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;            font-weight: 600;
+        }
+        /* Main Container */
+        .main-wrapper {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+        .details-card {
+            background: var(--white);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        /* Flyer Container */
+        .flyer-container {
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            height: 40vh;
+            width: 100%;
+            padding: 15px;
+            position: relative;
+        }
+        .main-flyer {
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            display: block;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+        .content-body {
+            padding: 35px;
+        }
+        /* Badges & Headers */
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-verified {
+            background: #ffedd5;
+            color: #9a3412;
+        }
+        h1 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+        .tutor-name {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            display: inline-block;
+        }
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 600px) {
+            .info-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .info-item {
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #f1f5f9;
+        }
+        .info-item label {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        .info-item span {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .desc-text {
+            font-size: 1rem;
+            color: #475569;
+            white-space: pre-line;
+            margin-bottom: 35px;
+            padding-top: 20px;
+            border-top: 1px solid #f1f5f9;
+        }
+        /* Action/Contact Card */
+        .action-card {
+            background: var(--dark);
+            padding: 25px;
+            border-radius: 18px;
+            color: white;
+            text-align: center;
+        }
+        .contact-btn {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            max-width: 350px;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.25rem;
+            transition: 0.3s;
+        }
+        /* Report Button */
+        .report-btn-prominent {
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .report-btn-prominent:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            color: var(--dark);
+            text-align: left;
+        }
+        /* Review Section */
+        .review-section {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        .review-header {
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        .review-card {
+            padding: 15px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .rating-stars {
+            color: var(--star);
+            font-size: 0.9rem;
+        }
+        .review-meta {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .review-comment {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+        /* Review Form */
+        .review-form {
+            margin-bottom: 30px;
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        .star-input {
+            font-size: 28px;
+            cursor: pointer;
+            color: #cbd5e1;
+            transition: 0.2s;
+        }
+        .star-input.active {
+            color: var(--star);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+        }
+        .see-more-btn {
+            background: none;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .see-more-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        @media (max-width: 480px) {
+            .content-body, .review-section { padding: 20px; }
+            .flyer-container { height: 35vh; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">ASW<span>ClassFinder</span></a>
+        <a href="index.html" class="back-btn">← Back</a>
+    </nav>
+    <div class="main-wrapper">
+        <div class="details-card">
+            <div class="flyer-container">
+                <img src="asw-science.jpg" class="main-flyer" alt="Physics Class Flyer">
+            </div>
+            <div class="content-body">
+                <div class="badge-row">
+                    <span class="badge badge-verified">✓ [SAMPLE AD]</span>
+                </div>
+                <h1>Advanced Level Physics 2026 Theory - [SAMPLE]</h1>
+                <div class="tutor-name"><span class="status-dot"></span> Amal Perera</div>
+                <div class="info-grid">
+                    <div class="info-item"><label>Subject</label><span>Physics</span></div>
+                    <div class="info-item"><label>Location</label><span>Kandy / Online</span></div>
+                    <div class="info-item"><label>Fee</label><span>Rs. 4000</span></div>
+                    <div class="info-item"><label>Year</label><span>2026 A/L</span></div>
+                </div>
+                <div class="desc-text">
+                    [THIS IS A SAMPLE ADVERTISEMENT]
+                    Master the laws of Physics with conceptual clarity and logical problem-solving techniques.
+                    • Complete theory for 2026 A/L following the National Institute of Education (NIE) syllabus.
+                    • In-depth explanation of Mechanics, Waves, and Thermal Physics.
+                    • Special focus on Structured Essay techniques and MCQ shortcuts.
+
+                    Schedule: Sundays 8.30 AM - 1.30 PM
+                </div>
+                <div class="action-card">
+                    <p style="margin-bottom: 15px; font-size: 0.9rem; opacity: 0.9;">Call the teacher directly to enroll:</p>
+                    <a href="tel:0710000000" class="contact-btn">071 000 0000</a>
+                    <button class="report-btn-prominent" onclick="openReport()">
+                        <span>🚩</span> Report Inappropriate Content
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="review-section">
+            <div class="review-header">Student Reviews (Samples)</div>
+            <div class="review-form">
+                <h4 style="margin-bottom: 10px;">Leave a Review</h4>
+                <div id="star-rating" style="margin-bottom: 10px;">
+                    <span class="star-input" onclick="setRating(1)">★</span>
+                    <span class="star-input" onclick="setRating(2)">★</span>
+                    <span class="star-input" onclick="setRating(3)">★</span>
+                    <span class="star-input" onclick="setRating(4)">★</span>
+                    <span class="star-input" onclick="setRating(5)">★</span>
+                </div>
+                <input type="text" id="stu-name" placeholder="Your Name">
+                <textarea id="stu-comment" rows="3" placeholder="How was the class?"></textarea>
+                <button class="submit-btn" onclick="submitReview()">Submit Review</button>
+            </div>
+            <div id="reviews-list">Loading reviews...</div>
+            <div id="see-more-container"></div>
+        </div>
+    </div>
+    <div id="reportModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Report Advertisement</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">Help us keep ASWClassFinder safe.</p>
+            <select id="report-reason" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border); margin:15px 0;">
+                <option value="Incorrect Information">Incorrect Information</option>
+                <option value="Suspicious/Scam">Suspicious or Scam</option>
+                <option value="Inappropriate Content">Inappropriate Content</option>
+                <option value="Teacher not responding">Teacher not responding</option>
+            </select>
+            <div style="display:flex; gap:10px;">
+                <button onclick="closeReport()" style="flex:1; padding:12px; border:none; border-radius:8px; cursor:pointer; background:#f1f5f9; font-weight:600;">Cancel</button>
+                <button onclick="sendReport()" style="flex:1; padding:12px; border:none; border-radius:8px; cursor:pointer; background:var(--danger); color:white; font-weight:700;">Submit Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SB_URL = 'https://nlwfmersznyaglxcpgds.supabase.co';
+        const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5sd2ZtZXJzem55YWdseGNwZ2RzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMjgyNzksImV4cCI6MjA4ODYwNDI3OX0.8Yd96WPdScG4Fp4PD3DjIRQSS7qIDdkmUm_1y1HTbEE';
+        const manualAdId = 'nuwan-kumara-physics-2026'; // Updated unique ID
+        const _sb = supabase.createClient(SB_URL, SB_KEY);
+        let userRating = 0;
+        let allReviews = [];
+
+        async function loadReviews() {
+            try {
+                const { data: reviews, error } = await _sb.from('reviews')
+                    .select('*')
+                    .eq('ad_id', manualAdId)
+                    .order('created_at', { ascending: false });
+                if (error) throw error;
+                allReviews = reviews;
+                displayReviews(false);
+            } catch (err) {
+                document.getElementById('reviews-list').innerText = "Unable to load reviews.";
+            }
+        }
+
+        function displayReviews(showAll) {
+            const reviewBox = document.getElementById('reviews-list');
+            const container = document.getElementById('see-more-container');
+            if (allReviews && allReviews.length > 0) {
+                const reviewsToDisplay = showAll ? allReviews : allReviews.slice(0, 2);
+                reviewBox.innerHTML = reviewsToDisplay.map(r => `
+                    <div class="review-card">
+                        <div class="rating-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+                        <div class="review-meta">${r.student_name}</div>
+                        <div class="review-comment">${r.comment}</div>
+                    </div>
+                `).join('');
+                if (!showAll && allReviews.length > 2) {
+                    container.innerHTML = `<button class="see-more-btn" onclick="displayReviews(true)">See More Reviews (${allReviews.length - 2}+)</button>`;
+                } else {
+                    container.innerHTML = "";
+                }
+            } else {
+                reviewBox.innerHTML = "<p style='color: #64748b; font-size: 0.9rem;'>No reviews yet. Be the first to leave one!</p>";
+            }
+        }
+
+        function setRating(n) {
+            userRating = n;
+            document.querySelectorAll('.star-input').forEach((s, i) => {
+                s.classList.toggle('active', i < n);
+            });
+        }
+
+        async function submitReview() {
+            const name = document.getElementById('stu-name').value.trim();
+            const msg = document.getElementById('stu-comment').value.trim();
+            if (!name || !msg || userRating === 0) return alert("Please fill all fields!");
+            const { error } = await _sb.from('reviews').insert([{
+                ad_id: manualAdId,
+                student_name: name,
+                rating: userRating,
+                comment: msg
+            }]);
+            if (error) alert("Error: " + error.message);
+            else location.reload();
+        }
+
+        function openReport() { document.getElementById('reportModal').style.display = 'flex'; }
+        function closeReport() { document.getElementById('reportModal').style.display = 'none'; }
+        async function sendReport() {
+            const reason = document.getElementById('report-reason').value;
+            const { error } = await _sb.from('reports').insert([{
+                ad_id: manualAdId,
+                reason: reason, status: 'pending'
+            }]);
+            if (error) alert("Error: " + error.message);
+            else { alert("Reported successfully."); closeReport(); }
+        }
+        loadReviews();
+    </script>
+</body>
+</html>

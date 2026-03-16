@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | ASWClassFinder</title>
+    <style>
+        :root { --primary: #2563eb; --dark: #0f172a; --light: #f8fafc; --white: #ffffff; --text-main: #334155; --border: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
+        body { background-color: var(--light); color: var(--text-main); line-height: 1.7; }
+
+        /* HEADER */
+        nav { background: var(--white); padding: 1rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.25rem; font-weight: 800; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--primary); }
+        .logo-box { background: var(--primary); color: white; padding: 2px 8px; border-radius: 6px; font-size: 0.9rem; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.9rem; font-weight: 600; margin-left: 20px; }
+
+        /* CONTAINER */
+        .main-container { max-width: 850px; margin: 40px auto; padding: 0 20px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 25px; }
+        .back-link { text-decoration: none; color: var(--primary); font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 5px; background: #eff6ff; padding: 6px 12px; border-radius: 8px; }
+
+        /* CARD */
+        .policy-card { background: var(--white); padding: 50px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+        h1 { font-size: 2.2rem; color: var(--dark); margin-bottom: 10px; font-weight: 800; }
+        .last-updated { font-size: 0.85rem; color: #94a3b8; margin-bottom: 30px; display: block; }
+        h2 { font-size: 1.3rem; color: var(--dark); margin-top: 35px; margin-bottom: 12px; font-weight: 700; }
+        p { margin-bottom: 20px; font-size: 1rem; color: #475569; }
+        .alert-box { background: #fff7ed; border-left: 4px solid #f97316; padding: 20px; border-radius: 12px; margin: 25px 0; font-weight: 500; color: #9a3412; }
+
+        @media (max-width: 600px) { .policy-card { padding: 30px 20px; } h1 { font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">ASWClass<span>Finder</span></a>
+        <div class="nav-links"><a href="index.html">Back</a></div>
+    </nav>
+    <div class="main-container">
+      
+
+        <div class="policy-card">
+            <h1>Terms & Conditions</h1>
+            <span class="last-updated">Last Updated: March 2026</span>
+            <p>Welcome to ASWClassFinder. By accessing our website, you agree to be bound by these terms. Please read them carefully.</p>
+            <div class="alert-box">ASWClassFinder is a listing directory. We do not employ teachers and are not responsible for the quality of tuition provided.</div>
+
+            <h2>1. Listing Requirements</h2>
+            <p>To post an ad, you must provide accurate and truthful information. We do not allow ads that contain spam, offensive language, or non-educational content. Every ad is reviewed manually before being published.</p>
+
+            <h2>2. User Conduct</h2>
+            <p>Users are prohibited from using the platform to harass, spam, or scam others. We reserve the right to ban any user or IP address that violates these safety standards.</p>
+
+          
+
+            <h2>4. Refund Policy</h2>
+          
+            <p><b>Refund Policy:</b> All payments made for premium ads are final. <b>No refunds</b> will be issued once the advertisement has been processed or published.</p>
+        </div>
+    </div>
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
