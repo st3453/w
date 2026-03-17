@@ -68,6 +68,27 @@
         .search-bar input { border: none; padding: 12px 20px; flex: 1; outline: none; font-size: 0.95rem; border-radius: 100px; min-width: 0; color: var(--dark); }
         .divider { width: 1px; height: 25px; background: var(--border); align-self: center; }
 
+
+          /* --- BANNER AD SECTION --- */
+        .banner-ad-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0; /* No space as requested */
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .banner-ad-item {
+            width: 100%;
+            overflow: hidden;
+        }
+        .banner-ad-item img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 5; /* Keeps image proportions consistent */
+            object-fit: cover; /* Prevents stretching */
+            display: block;
+        }
+
         /* --- SAFETY BAR --- */
         .safety-bar { 
             background: #fffbeb; border: 1px solid #fef3c7; border-radius: 16px; 
@@ -178,10 +199,12 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
+            .banner-ad-wrapper { grid-template-columns: repeat(2, 1fr); }
             .grid-container { grid-template-columns: repeat(2, 1fr); } /* 2 columns for iPad/Tab */
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
+             .banner-ad-wrapper { grid-template-columns: 1fr; }
             .grid-container { grid-template-columns: 1fr; } /* 1 column for Phones */
             .search-bar { flex-direction: column; border-radius: 20px; padding: 15px; gap: 10px; background: transparent; }
             .search-bar input { background: var(--white); border: 1px solid var(--border); border-radius: 12px; }
@@ -215,6 +238,12 @@
             </div>
         </div>
     </section>
+
+     <div class="banner-ad-wrapper">
+        <div class="banner-ad-item"><img src="tuition-classes-sri-lanka-banner.jpg" alt="Advertisement"></div>
+        <div class="banner-ad-item"><img src="tuition-classes-sri-lanka-banner.jpg" alt="Advertisement"></div>
+        <div class="banner-ad-item"><img src="tuition-classes-sri-lanka-banner.jpg" alt="Advertisement"></div>
+    </div>
 
     <div class="container">
         <div class="safety-bar">
