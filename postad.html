@@ -35,7 +35,7 @@
             top: 0;
             z-index: 1000;
         }
-         .logo { font-size: 1.5rem; font-weight: 800; color: #1e293b; text-decoration: none; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: #1e293b; text-decoration: none; }
         .logo span { color: var(--primary); }
         
         .nav-back { 
@@ -91,7 +91,6 @@
         .support-link span { color: var(--primary); font-weight: 600; }
         .compulsory { color: var(--error); margin-left: 2px; }
 
-        /* Ad Card Styling for Status List */
         .status-card {
             background: #f8fafc;
             border: 1px solid var(--border);
@@ -235,7 +234,7 @@
         if (file) {
             const reader = new FileReader();
             reader.onload = () => { 
-                document.getElementById('poster-img').src = reader.result;
+                 document.getElementById('poster-img').src = reader.result;
                 document.getElementById('poster-img').style.display = 'block';
                 document.getElementById('placeholder-text').style.display = 'none';
             }
@@ -267,31 +266,37 @@
         btn.innerText = "Uploading...";
 
         let finalUrl = "";
-        if(file) {
-            const fileName = `${Date.now()}_${file.name}`;
-            const { data } = await _sb.storage.from('ads').upload(`posters/${fileName}`, file);
-            if(data) finalUrl = _sb.storage.from('ads').getPublicUrl(`posters/${fileName}`).data.publicUrl;
-        }
+        try {
+            if(file) {
+                const fileName = `${Date.now()}_${file.name}`;
+                const { data, error: uploadError } = await _sb.storage.from('ads').upload(`posters/${fileName}`, file);
+                if(uploadError) throw uploadError;
+                if(data) finalUrl = _sb.storage.from('ads').getPublicUrl(`posters/${fileName}`).data.publicUrl;
+            }
 
-        const { error } = await _sb.from('pending_ads').insert([{
-            name: document.getElementById('name').value, 
-            subject: document.getElementById('subject').value,
-            contact: document.getElementById('contact').value,
-            whatsapp: document.getElementById('whatsapp').value,
-            email: document.getElementById('email').value,
-            view_password: document.getElementById('pw').value,
-            location: document.getElementById('loc').value,
-            grades: document.getElementById('grades').value,
-            fee: document.getElementById('fee').value,
-            details: document.getElementById('desc').value,
-            type: document.getElementById('type').value,
-            img_url: finalUrl
-        }]);
+            const { error } = await _sb.from('pending_ads').insert([{
+                name: document.getElementById('name').value, 
+                subject: document.getElementById('subject').value,
+                contact: document.getElementById('contact').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                email: document.getElementById('email').value,
+                view_password: document.getElementById('pw').value,
+                location: document.getElementById('loc').value,
+                grades: document.getElementById('grades').value,
+                fee: document.getElementById('fee').value,
+                details: document.getElementById('desc').value,
+                type: document.getElementById('type').value,
+                img_url: finalUrl
+            }]);
 
-        if(error) { alert(error.message); btn.disabled = false; }
-        else { 
+            if(error) throw error;
+            
             document.getElementById('user-ui').style.display = 'none';
             document.getElementById('success-overlay').style.display = 'flex'; 
+        } catch (err) {
+            alert(err.message);
+            btn.disabled = false;
+            btn.innerText = "Submit Ad";
         }
     }
 
@@ -350,7 +355,10 @@
         } else if(reason === 'general') {
             msg = "Hello Admin, I need assistance with the ASW Control Center.";
         }
-        window.open(`https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(msg)}`, '_blank');
+        
+        // Correct way for cross-device support: Use api.whatsapp.com and window.location.href
+        const url = `https://api.whatsapp.com/send?phone=${ADMIN_WA}&text=${encodeURIComponent(msg)}`;
+        window.location.href = url;
     }
 </script>
 </body>
