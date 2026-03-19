@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biology 2026 Theory | [SAMPLE AD] | ASWClassFinder</title>
+    <title>ASWClassFinder | A/L Physics | M.Prakash Wijayasinghe </title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Sinhala:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -23,7 +24,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Noto Sans Sinhala', sans-serif;
         }
         body {
             background-color: var(--light);
@@ -78,7 +79,7 @@
             justify-content: center;
             align-items: center;
             border-bottom: 1px solid var(--border);
-            height: 40vh;
+            height: 80vh;
             width: 100%;
             padding: 15px;
             position: relative;
@@ -90,6 +91,7 @@
             display: block;
             object-fit: contain;
             border-radius: 4px;
+            cursor: zoom-in;
         }
         .content-body {
             padding: 35px;
@@ -342,9 +344,49 @@
             background: var(--primary);
             color: white;
         }
+
+        /* --- Image Enlarge Styles --- */
+        #imageOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            cursor: zoom-out;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        #imageOverlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+        .close-overlay {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 3100;
+            user-select: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         @media (max-width: 480px) {
             .content-body, .review-section { padding: 20px; }
             .flyer-container { height: 35vh; }
+            .close-overlay { top: 10px; right: 20px; font-size: 35px; }
         }
     </style>
 </head>
@@ -356,20 +398,20 @@
     <div class="main-wrapper">
         <div class="details-card">
             <div class="flyer-container">
-                <img src="img1.jpg" class="main-flyer" alt="Sample Flyer">
+                <img src="M.prakash wijayasinghe .jpg" class="main-flyer" alt="Sample Flyer" onclick="enlargeImage(this.src)">
             </div>
             <div class="content-body">
                 <div class="badge-row">
-                    <span class="badge badge-verified">✓ [SAMPLE AD]</span>
+                    <span class="badge badge-verified">Individual & Group</span>
                     
                 </div>
-                <h1>Advanced Level Biology 2027 Theory - [SAMPLE]</h1>
-                <div class="tutor-name"><span class="status-dot"></span> Amali Perera</div>
+                <h1> Physics</h1>
+                <div class="tutor-name"><span class="status-dot"></span> M.Prakash Wijayasinghe</div>
                 <div class="info-grid">
-                    <div class="info-item"><label>Subject</label><span>Biology</span></div>
-                    <div class="info-item"><label>Location</label><span>Colombo / Online</span></div>
-                    <div class="info-item"><label>Fee</label><span>Rs. 3500</span></div>
-                    <div class="info-item"><label>Year</label><span>2027 A/L</span></div>
+                    <div class="info-item"><label>Subject</label><span> Physics</span></div>
+                    <div class="info-item"><label>Location</label><span>All Island </span></div>
+                    <div class="info-item"><label>Fee</label><span>Rs. 4000</span></div>
+                    <div class="info-item"><label>Grades</label><span> A/L</span></div>
                 </div>
                 <div class="desc-text">
                     <div style="display: grid; gap: 8px;">
@@ -377,19 +419,20 @@
                 <span style="color: #10b981; font-weight: 800;">✓</span> <span>Logical teaching pattern with guaranteed results.</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #10b981; font-weight: 800;">✓</span> <span>A large number of m.c.q s, essays and structured essays are  discussed.</span>
+                <span style="color: #10b981; font-weight: 800;">✓</span> <span>A large number of MCQs, essays and structured essays are  discussed.</span>
             </div>
+           
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="color: #10b981; font-weight: 800;">✓</span> <span>Group or individual classes.</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
+             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="color: #10b981; font-weight: 800;">✓</span> <span>Completion of syllabus on time.</span>
             </div>
              <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="color: #10b981; font-weight: 800;">✓</span> <span>Special attention for each and every student.</span>
             </div>
              <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #10b981; font-weight: 800;">✓</span> <span>Classes can be conducted in physical or online methodology.</span>
+                <span style="color: #10b981; font-weight: 800;">✓</span> <span>Classes can be conducted in physical or online methodology. </span>
             </div>
              <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="color: #10b981; font-weight: 800;">✓</span> <span>Clear explaining in all questions with suitable examples.</span>
@@ -400,17 +443,18 @@
              <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="color: #10b981; font-weight: 800;">✓</span> <span>Students are directly oriented to face hard questions with easy strategies.</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #10b981; font-weight: 800;">✓</span> <span>Finally we ensure results of students without any daught.</span>
+             <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #10b981; font-weight: 800;">✓</span> <span>Finally, we ensure the results of our students without any doubt.</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
+             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="color: #10b981; font-weight: 800;">✓</span> <span>In last years we were able to make a very large number of students to enter to medical and engineering faculties.</span>
             </div>
+            
         </div>
                 </div>
                 <div class="action-card">
                     <p style="margin-bottom: 15px; font-size: 0.9rem; opacity: 0.9;">Call the teacher directly to enroll:</p>
-                    <a href="tel:0770000000" class="contact-btn">077 000 0000</a>
+                    <a href="tel:0729591327" class="contact-btn">072 959 1327</a>
                     <button class="report-btn-prominent" onclick="openReport()">
                         <span>🚩</span> Report Inappropriate Content
                     </button>
@@ -418,7 +462,7 @@
             </div>
         </div>
         <div class="review-section">
-            <div class="review-header">Student Reviews (Samples)</div>
+            <div class="review-header">Student Reviews </div>
             <div class="review-form">
                 <h4 style="margin-bottom: 10px;">Leave a Review</h4>
                 <div id="star-rating" style="margin-bottom: 10px;">
@@ -436,6 +480,12 @@
             <div id="see-more-container"></div>
         </div>
     </div>
+
+    <div id="imageOverlay" onclick="this.style.display='none'">
+        <span class="close-overlay" onclick="this.parentElement.style.display='none'">&times;</span>
+        <img id="enlargedImg" src="" alt="Enlarged View">
+    </div>
+
     <div id="reportModal" class="modal-overlay">
         <div class="modal-content">
             <h3>Report Advertisement</h3>
@@ -453,7 +503,143 @@
         </div>
     </div>
 
-    <script src="script1.js"></script>
-   
+    
+    <script>
+
+
+        function enlargeImage(src) {
+            const overlay = document.getElementById('imageOverlay');
+            const img = document.getElementById('enlargedImg');
+            img.src = src;
+            overlay.style.display = 'flex';
+        }
+
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        } else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+
+        // --- 1. CONFIGURATION ---
+        const SB_URL = 'https://nlwfmersznyaglxcpgds.supabase.co';
+        const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5sd2ZtZXJzem55YWdseGNwZ2RzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMjgyNzksImV4cCI6MjA4ODYwNDI3OX0.8Yd96WPdScG4Fp4PD3DjIRQSS7qIDdkmUm_1y1HTbEE';
+        const manualAdId = '4-m-prakash-wijayasinghe-physics-27';
+        const _sb = supabase.createClient(SB_URL, SB_KEY);
+        let userRating = 0;
+        let allReviews = [];
+
+        // --- 2. REVIEW LOADING & DISPLAY ---
+        async function loadReviews() {
+            try {
+                const { data: reviews, error } = await _sb.from('reviews')
+                    .select('*')
+                    .eq('ad_id', manualAdId)
+                    .order('created_at', { ascending: false });
+                if (error) throw error;
+                allReviews = reviews;
+                displayReviews(false);
+            } catch (err) {
+                console.error("Error loading reviews:", err.message);
+                document.getElementById('reviews-list').innerText = "Unable to load reviews.";
+            }
+        }
+
+        function displayReviews(showAll) {
+            const reviewBox = document.getElementById('reviews-list');
+            const container = document.getElementById('see-more-container');
+            if (allReviews && allReviews.length > 0) {
+                const reviewsToDisplay = showAll ? allReviews : allReviews.slice(0, 2);
+                reviewBox.innerHTML = reviewsToDisplay.map(r => `
+                    <div class="review-card">
+                        <div class="rating-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+                        <div class="review-meta">${r.student_name}</div>
+                        <div class="review-comment">${r.comment}</div>
+                    </div>
+                `).join('');
+                if (!showAll && allReviews.length > 2) {
+                    container.innerHTML = `<button class="see-more-btn" onclick="displayReviews(true)">See More Reviews (${allReviews.length - 2}+)</button>`;
+                } else {
+                    container.innerHTML = "";
+                }
+            } else {
+                reviewBox.innerHTML = "<p style='color: #64748b; font-size: 0.9rem;'>No reviews yet. Be the first to leave one!</p>";
+                container.innerHTML = "";
+            }
+        }
+
+        // --- 3. STAR RATING SYSTEM ---
+        function setRating(n) {
+            userRating = n;
+            document.querySelectorAll('.star-input').forEach((s, i) => {
+                s.classList.toggle('active', i < n);
+            });
+        }
+
+        // --- 4. SUBMIT REVIEW ---
+        async function submitReview() {
+            const name = document.getElementById('stu-name').value.trim();
+            const msg = document.getElementById('stu-comment').value.trim();
+            if (!name || !msg || userRating === 0) {
+                return alert("Please provide your name, a comment, and a star rating!");
+            }
+            const { error } = await _sb.from('reviews').insert([{
+                ad_id: manualAdId,
+                student_name: name,
+                rating: userRating,
+                comment: msg
+            }]);
+            if (error) {
+                alert("Error submitting review: " + error.message);
+            } else {
+                alert("Review submitted successfully!");
+                location.reload();
+            }
+        }
+
+        // --- 5. REPORTING SYSTEM ---
+        function openReport() { document.getElementById('reportModal').style.display = 'flex'; }
+        function closeReport() { document.getElementById('reportModal').style.display = 'none'; }
+        async function sendReport() {
+            const reason = document.getElementById('report-reason').value;
+            const { error } = await _sb.from('reports').insert([{
+                ad_id: manualAdId,
+                reason: reason,                status: 'pending'
+            }]);
+            if (error) {
+                alert("Error sending report: " + error.message);
+            } else {
+                alert("Thank you. This advertisement has been reported for review.");
+                closeReport();
+            }
+        }
+        loadReviews();
+    </script>
 </body>
 </html>

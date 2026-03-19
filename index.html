@@ -28,8 +28,7 @@
 <meta name="twitter:description" content="Sri Lanka's trusted tuition class discovery platform for students and teachers.">
 <meta name="twitter:image" content="https://aswclassfinder.online/og-image.jpg">
 
-<!-- Favicon -->
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script async src="https://js.adstudio.cloud/static/adstudio.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
@@ -68,12 +67,11 @@
         .search-bar input { border: none; padding: 12px 20px; flex: 1; outline: none; font-size: 0.95rem; border-radius: 100px; min-width: 0; color: var(--dark); }
         .divider { width: 1px; height: 25px; background: var(--border); align-self: center; }
 
-
-          /* --- BANNER AD SECTION --- */
+        /* --- BANNER AD SECTION --- */
         .banner-ad-wrapper {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0; /* No space as requested */
+            gap: 0; 
             width: 100%;
             margin-bottom: 20px;
         }
@@ -84,8 +82,8 @@
         .banner-ad-item img {
             width: 100%;
             height: auto;
-            aspect-ratio: 16 / 5; /* Keeps image proportions consistent */
-            object-fit: cover; /* Prevents stretching */
+            aspect-ratio: 16 / 5;
+            object-fit: cover;
             display: block;
         }
 
@@ -99,7 +97,7 @@
         /* --- GRID LAYOUT --- */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             margin: 40px auto;
             justify-content: center;
@@ -114,18 +112,28 @@
         }
         .class-card:hover { transform: translateY(-5px); border-color: var(--primary); }
         
-        .card-poster { width: 100%; aspect-ratio: 16 / 10; background: #000; overflow: hidden; }
-        .card-poster img { width: 100%; height: 100%; object-fit: cover; }
+        /* FIXED IMAGE BEHAVIOR HERE */
+        .card-poster { 
+            width: 100%; 
+            aspect-ratio: 16 / 10; 
+            background: #ffffff; /* Side white background */
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-poster img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; /* Prevents cropping, fits image inside */
+        }
         
         .card-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
-        
         .badge { padding: 3px 10px; border-radius: 100px; font-size: 10px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; display: inline-block; width: fit-content; }
         .badge-verified { background: #dcfce7; color: #15803d; }
-        
         .card-content h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 5px; line-height: 1.3; height: 2.6em; overflow: hidden; }
         .tutor-name { font-size: 0.95rem; font-weight: 600; color: var(--primary); margin-bottom: 10px; }
         .meta-info { font-size: 0.85rem; color: var(--muted); margin-bottom: 15px; }
-        
         .review-row { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; margin-top: auto; }
         .stars { color: var(--star-gold); font-size: 1rem; }
         .rating-count { font-size: 0.8rem; color: var(--muted); }
@@ -140,78 +148,29 @@
         .btn-primary { background: var(--primary); color: var(--white); width: 100%; display: block; }
         .btn-search { background: var(--primary); color: var(--white); border-radius: 50px; margin-right: 5px; }
 
-    /* --- FOOTER --- */
-        .site-footer { background: #0f172a; 
-            color: #f8fafc; 
-            padding: 60px 0 30px; 
-            margin-top: 80px; 
-        }
+        /* --- FOOTER --- */
+        .site-footer { background: #0f172a; color: #f8fafc; padding: 60px 0 30px; margin-top: 80px; }
+        .footer-cta { background: var(--primary); border-radius: 20px; padding: 30px; margin: -100px auto 50px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-main { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.2s; }
+        .footer-links a:hover { color: #fff; transform: translateX(5px); display: inline-block; }
+        .footer-bottom { border-top: 1px solid #1e293b; margin-top: 40px; padding-top: 30px; text-align: center; color: #64748b; font-size: 0.9rem; }
 
-        .footer-cta { 
-            background: var(--primary); 
-            border-radius: 20px; 
-            padding: 30px; 
-            margin: -100px auto 50px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-
-        .footer-main { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr 1fr; 
-            gap: 40px; 
-        }
-
-        .footer-links { 
-            list-style: none; 
-        }
-
-        .footer-links li { 
-            margin-bottom: 10px; 
-        }
-
-        .footer-links a { 
-            color: #94a3b8; 
-            text-decoration: none; 
-            transition: 0.2s; 
-        }
-
-        .footer-links a:hover { 
-            color: #fff; 
-            transform: translateX(5px); 
-            display: inline-block; 
-        }
-
-        .footer-bottom { 
-            border-top: 1px solid #1e293b; 
-            margin-top: 40px; 
-            padding-top: 30px; 
-            text-align: center; 
-            color: #64748b; 
-            font-size: 0.9rem; 
-        }
-
-@media (max-width: 768px) {
-    .footer-cta { flex-direction: column; text-align: center; gap: 20px; margin-top: -80px; }
-    .footer-main { grid-template-columns: 1fr; gap: 30px; }
-}
-
-        /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
             .banner-ad-wrapper { grid-template-columns: repeat(2, 1fr); }
-            .grid-container { grid-template-columns: repeat(2, 1fr); } /* 2 columns for iPad/Tab */
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .grid-container { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 768px) {
-             .banner-ad-wrapper { grid-template-columns: 1fr; }
-            .grid-container { grid-template-columns: 1fr; } /* 1 column for Phones */
+        @media (max-width: 768px) { 
+            .banner-ad-wrapper { grid-template-columns: 1fr; }
+            .grid-container { grid-template-columns: 1fr; }
             .search-bar { flex-direction: column; border-radius: 20px; padding: 15px; gap: 10px; background: transparent; }
             .search-bar input { background: var(--white); border: 1px solid var(--border); border-radius: 12px; }
             .divider { display: none; }
             .btn-search { width: 100%; border-radius: 12px; padding: 15px; }
-            .footer-cta { flex-direction: column; text-align: center; gap: 20px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-cta { flex-direction: column; text-align: center; gap: 20px; margin-top: -80px; }
+            .footer-main { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
@@ -239,7 +198,7 @@
         </div>
     </section>
 
-     <div class="banner-ad-wrapper">
+    <div class="banner-ad-wrapper">
         <div class="banner-ad-item"><img src="tuition-classes-sri-lanka-banner.jpg" alt="Advertisement"></div>
         <div class="banner-ad-item"><img src="tuition-classes-sri-lanka-banner.jpg" alt="Advertisement"></div>
         <div class="banner-ad-item"><img src="tuition-classes-sri-lanka-banner.jpg" alt="Advertisement"></div>
@@ -248,28 +207,55 @@
     <div class="container">
         <div class="safety-bar">
             <span style="font-size: 1.5rem;">🛡️</span>
-            <div><strong>Safety First:</strong> Before making any payments, always verify the teacher's qualifications and teaching experience.If you are attending a physical class, ensure it is in a recognized institute or a public learning space. </div>
+            <div><strong>Safety First:</strong> Before making any payments, always verify the teacher's qualifications and teaching experience. If you are attending a physical class, ensure it is in a recognized institute or a public learning space. </div>
         </div>
 
-        <div class="grid-container" id="adsContainer">
-           
+        <div class="grid-container" id="adsContainer">      
+            
+            <div class="class-card tuition-ad">
+                <div class="card-poster"><img src="Oshadha Samarakoon.jpg"></div>
+                <div class="card-content">
+                    <h3>O/L Mathematics</h3>
+                    <p class="tutor-name">Oshadha Samarakoon</p>
+                    <p class="meta-info">📍 Kandy • 📚 Individual & Group</p>
+                    <div class="review-row">
+                       <span class="stars" id="star-5-oshadha-samarakoon-olevel-mathematics-86">★★★★★</span>
+                        <span class="rating-count" id="count-5-oshadha-samarakoon-olevel-mathematics-86">Loading reviews...</span>
+                    </div>
+                    <a href="5-oshadha-samarakoon-olevel-mathematics-86.html" class="btn btn-primary">View More Details</a>
+                </div>
+            </div> 
+
 
             <div class="class-card tuition-ad">
-                <div class="card-poster"><img src="img1.jpg"></div>
+                <div class="card-poster"><img src="Indika Mallawarachchi.jpg"></div>
                 <div class="card-content">
-                    
-                    <h3>Advanced Level Biology 2027 Theory - [SAMPLE]</h3>
-                    <p class="tutor-name">Amali Perera</p>
-                    <p class="meta-info">📍 Colombo / Online • 📚 2027 A/L</p>
+                    <h3>English </h3>
+                    <p class="tutor-name">Indika Mallawarachchi</p>
+                    <p class="meta-info">📍 Colombo • 📚 Individual & Group</p>
                     <div class="review-row">
-                       <span class="stars" id="star-aruna">★★★★★</span>
-                        <span class="rating-count" id="aruna-perera-bio-2026">Loading reviews...</span>
+                       <span class="stars" id="star-3-indika-mallawarachchi-english-02">★★★★★</span>
+                        <span class="rating-count" id="count-3-indika-mallawarachchi-english-02">Loading reviews...</span>
                     </div>
-                    <a href="ad1.html" class="btn btn-primary">View More Details</a>
+                    <a href="3-indika-mallawarachchi-english-02.html" class="btn btn-primary">View More Details</a>
                 </div>
             </div>
 
-           
+             
+
+             <div class="class-card tuition-ad">
+                <div class="card-poster"><img src="M.prakash wijayasinghe .jpg"></div>
+                <div class="card-content">
+                    <h3> Physics </h3>
+                    <p class="tutor-name">M.Prakash Wijayasinghe</p>
+                    <p class="meta-info">📍 All Island • 📚 Individual & Group</p>
+                    <div class="review-row">
+                       <span class="stars" id="star-4-m-prakash-wijayasinghe-physics-27">★★★★★</span>
+                        <span class="rating-count" id="count-4-m-prakash-wijayasinghe-physics-27">Loading reviews...</span>
+                    </div>
+                    <a href="4-m-prakash-wijayasinghe-physics-27.html" class="btn btn-primary">View More Details</a>
+                </div>
+            </div>
         </div>
 
         <div class="pagination" id="pagination">
@@ -279,19 +265,15 @@
         </div>
     </div>
 
-      <footer class="site-footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-cta">
                 <div>
                     <h3 style="color:white">Are you a qualified teacher?</h3>
-                    <p style="color:white; opacity:0.9"></p>
                 </div>
-                <a href="adslot.html"
-                    style="background:#fff; color:var(--primary); padding: 14px 30px; border-radius: 12px; text-decoration: none; font-weight: 700;">List
-                    Your Class Now</a>
+                <a href="adslot.html" style="background:#fff; color:var(--primary); padding: 14px 30px; border-radius: 12px; text-decoration: none; font-weight: 700;">List Your Class Now</a>
             </div>
             <div class="footer-main">
-               
                 <div class="footer-col">
                     <h4 style="color: white; margin-bottom: 20px;">Quick Links</h4>
                     <ul class="footer-links">
@@ -322,8 +304,77 @@
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script>
+        const SUPABASE_URL = 'https://nlwfmersznyaglxcpgds.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5sd2ZtZXJzem55YWdseGNwZ2RzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMjgyNzksImV4cCI6MjA4ODYwNDI3OX0.8Yd96WPdScG4Fp4PD3DjIRQSS7qIDdkmUm_1y1HTbEE';
+        const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  
+        async function syncReviewData(adId, countElementId, starElementId) {
+            try {
+                const { data, count, error } = await client
+                    .from('reviews')
+                    .select('rating', { count: 'exact' })
+                    .eq('ad_id', adId);
+
+                const countEl = document.getElementById(countElementId);
+                const starEl = document.getElementById(starElementId);
+                if (!countEl || !starEl) return;
+
+                if (error) throw error;
+
+                if (data && count > 0) {
+                    const avgRating = data.reduce((acc, item) => acc + item.rating, 0) / count;
+                    countEl.innerText = `(${avgRating.toFixed(1)} • ${count} Reviews)`;
+                    let starStr = "";
+                    const roundedRating = Math.round(avgRating);
+                    for (let i = 1; i <= 5; i++) { starStr += (i <= roundedRating) ? "★" : "☆"; }
+                    starEl.innerText = starStr;
+                } else {
+                    countEl.innerText = "(No reviews yet)";
+                    starEl.innerText = "☆☆☆☆☆";
+                }
+            } catch (err) {
+                console.error(err);
+                const el = document.getElementById(countElementId);
+                if (el) el.innerText = "(Rating Unavailable)";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            syncReviewData('5-oshadha-samarakoon-olevel-mathematics-86', 'count-5-oshadha-samarakoon-olevel-mathematics-86', 'star-5-oshadha-samarakoon-olevel-mathematics-86');
+            syncReviewData('3-indika-mallawarachchi-english-02', 'count-3-indika-mallawarachchi-english-02', 'star-3-indika-mallawarachchi-english-02');
+            syncReviewData('4-m-prakash-wijayasinghe-physics-27', 'count-4-m-prakash-wijayasinghe-physics-27', 'star-4-m-prakash-wijayasinghe-physics-27');
+        });
+
+      function filterAds() {
+    // 1. Get search values
+    let s = document.getElementById('subjectSearch').value.toLowerCase().trim();
+    const g = document.getElementById('gradeSearch').value.toLowerCase().trim();
+    const l = document.getElementById('locationSearch').value.toLowerCase().trim();
+
+    // 2. Alias Logic: If user types "maths" or "math", treat it as "mathematics"
+    // This ensures searching "maths" finds cards labeled "Mathematics"
+    if (s === 'maths' || s === 'math') {
+        s = 'mathemat'; // Using a partial root helps match both variations
+    }
+
+    const allCards = document.querySelectorAll('.class-card');
+    const pagination = document.getElementById('pagination');
+    const isSearching = s !== "" || g !== "" || l !== "";
+
+    allCards.forEach(card => {
+        const txt = card.innerText.toLowerCase();
+        
+        // 3. Check if all conditions are met
+        if (txt.includes(s) && txt.includes(g) && txt.includes(l)) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    pagination.style.display = isSearching ? "none" : "flex";
+}
+    </script>
 </body>
 </html>
