@@ -3,8 +3,69 @@
 
   <url>
     <loc>https://aswclassfinder.online/</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://aswclassfinder.online/5-oshadha-samarakoon-olevel-mathematics-86.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aswclassfinder.online/3-indika-mallawarachchi-english-02.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aswclassfinder.online/4-m-prakash-wijayasinghe-physics-27.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aswclassfinder.online/postad.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://aswclassfinder.online/adslot.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://aswclassfinder.online/aboutus.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://aswclassfinder.online/terms.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://aswclassfinder.online/privacy.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://aswclassfinder.online/safety.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
